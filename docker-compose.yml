@@ -1,0 +1,28 @@
+services:
+  cassandra:
+    container_name: cassandra-db
+    image: cassandra:5.0
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+      - ./init.cql:/init.cql
+    healthcheck:
+      test: ["CMD-SHELL", "cqlsh -u cassandra -p cassandra -e \"SELECT release_version FROM system.local\" 2>/dev/null || exit 1"]
+      start_period: 10s
+
+  # cassandra-init:
+  #   image: cassandra:5.0
+  #   depends_on:
+  #     cassandra:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./init.sh:/init.sh
+  #     - ./init.cql:/init.cql
+  #   entrypoint: /bin/bash /init.sh
+  #   container_name: cassandra-init
+  #   links:
+  #     - cassandra:cassandra-db
+
+volumes:
+  cassandra_data:

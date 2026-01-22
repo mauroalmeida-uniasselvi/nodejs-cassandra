@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-cassandra",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/mauroalmeida-uniasselvi/nodejs-cassandra#readme",
+  "bugs": {
+    "url": "https://github.com/mauroalmeida-uniasselvi/nodejs-cassandra/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauroalmeida-uniasselvi/nodejs-cassandra.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-strip-types index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cassandra-driver": "^4.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.8"
+  }
+}
